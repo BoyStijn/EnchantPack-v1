@@ -1,0 +1,6 @@
+name: EnchantPack1
+version: '1.0.0'
+main: blob.enchantpack1.EnchantPack1
+load: STARTUP
+api-version: 1.18
+depend: [ EnchantLib ]
