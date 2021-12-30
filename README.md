@@ -1,6 +1,6 @@
 # EnchantPack v1
 
-EnchantPack v1 adds 11 unique custom enchantments to your spigot server
+EnchantPack v1 adds 12 unique custom enchantments to your spigot server
 
 ## Dependency
 EnchantPack v1 is dependent on [EnchantLib](https://github.com/BoyStijn/EnchantLib).
@@ -63,4 +63,9 @@ id: `enchantpack1:flight`
 can be applied to fishing rods. \
 Your fishing rod can now hook blocks. \
 id: `enchantpack1:block`
+
+### Bull Rider
+can be applied to chestplates. \
+On damage summon a cow to fight for you. \
+id: `enchantpack1:bull`
 

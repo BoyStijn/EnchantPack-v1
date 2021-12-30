@@ -33,6 +33,7 @@ public class EnchantPack1 extends JavaPlugin {
 			API.registerEnchants(new NamespacedKey(Instance, "jelly"), new JellyLegs(Rarity.c, new EnumItemSlot[] { EnumItemSlot.c }), "Jelly Legs");
 			API.registerEnchants(new NamespacedKey(Instance, "slam"), new Slam(Rarity.c, new EnumItemSlot[] { EnumItemSlot.a }), "Ground Slam");
 			API.registerEnchants(new NamespacedKey(Instance, "block"), new blocks(Rarity.d, new EnumItemSlot[] { EnumItemSlot.a }), "Fishy Blocks");
+			API.registerEnchants(new NamespacedKey(Instance, "bull"), new BullRider(Rarity.d, new EnumItemSlot[] { EnumItemSlot.e }), "Bull Rider");
 		}
 	}
 	
