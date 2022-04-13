@@ -3,6 +3,7 @@ package blob.enchantpack1.enchantments;
 import java.util.HashMap;
 import java.util.UUID;
 
+import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Cow;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.LivingEntity;
@@ -12,10 +13,13 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.scheduler.BukkitRunnable;
 
+import blob.enchantlib.CustomEnchantment;
+import blob.enchantlib.EnchantRarity;
+import blob.enchantlib.EnchantSlot;
+import blob.enchantlib.EnchantTarget;
 import blob.enchantpack1.EnchantPack1;
 import blob.enchantpack1.PathfinderGoalAttackEntity;
 import net.minecraft.world.entity.EntityCreature;
-import net.minecraft.world.entity.EnumItemSlot;
 import net.minecraft.world.entity.ai.attributes.GenericAttributes;
 import net.minecraft.world.entity.ai.goal.PathfinderGoal;
 import net.minecraft.world.entity.ai.goal.PathfinderGoalFloat;
@@ -25,40 +29,38 @@ import net.minecraft.world.entity.ai.goal.PathfinderGoalMeleeAttack;
 import net.minecraft.world.entity.ai.goal.PathfinderGoalRandomLookaround;
 import net.minecraft.world.entity.ai.goal.PathfinderGoalRandomStrollLand;
 import net.minecraft.world.entity.player.EntityHuman;
-import net.minecraft.world.item.enchantment.Enchantment;
-import net.minecraft.world.item.enchantment.EnchantmentSlotType;
 
-public class BullRider extends Enchantment implements Listener{
+public class BullRider extends CustomEnchantment implements Listener{
 
 	private static HashMap<UUID, UUID> bulls = new HashMap<UUID, UUID>();
 	
-	public BullRider(Rarity rarity, EnumItemSlot... aenumitemslot) {
-		super(rarity, EnchantmentSlotType.d, aenumitemslot);
+	public BullRider(EnchantRarity rarity, EnchantSlot... aenumitemslot) {
+		super(rarity, EnchantTarget.ARMOR_HEAD, aenumitemslot);
 		EnchantPack1.Instance.getServer().getPluginManager().registerEvents(this, EnchantPack1.Instance);
 	}
 	
 	@Override
-	public int a(int i) {
+	public int MinCost(int i) {
 	    return i * 10;
 	}
 	
 	@Override
-	public int b(int i) {
-	    return a(i) + 15;
+	public int MaxCost(int i) {
+	    return MinCost(i) + 15;
 	}
 	
 	@Override
-	public boolean b() {
+	public boolean OnlyTreasure() {
 		return true;
 	}
 	
 	@Override
-	public int a() {
+	public int MaxLvl() {
 		return 3;
 	}
 	
 	@Override
-	public boolean a(Enchantment enchantment) {
+	public boolean isCompatible(Enchantment enchantment) {
 		return true;
 	}
 	

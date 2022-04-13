@@ -1,5 +1,6 @@
 package blob.enchantpack1.enchantments;
 
+import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Arrow;
 import org.bukkit.entity.Entity;
 import org.bukkit.event.EventHandler;
@@ -7,41 +8,42 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityShootBowEvent;
 import org.bukkit.scheduler.BukkitRunnable;
 
+import blob.enchantlib.CustomEnchantment;
+import blob.enchantlib.EnchantRarity;
+import blob.enchantlib.EnchantSlot;
+import blob.enchantlib.EnchantTarget;
 import blob.enchantpack1.EnchantPack1;
-import net.minecraft.world.entity.EnumItemSlot;
-import net.minecraft.world.item.enchantment.Enchantment;
-import net.minecraft.world.item.enchantment.EnchantmentSlotType;
 
-public class Bomber extends Enchantment implements Listener {
+public class Bomber extends CustomEnchantment implements Listener {
 
-	public Bomber(Rarity rarity, EnumItemSlot... aenumitemslot) {
-		super(rarity, EnchantmentSlotType.k, aenumitemslot);
+	public Bomber(EnchantRarity rarity, EnchantSlot... aenumitemslot) {
+		super(rarity, EnchantTarget.BOW, aenumitemslot);
 		EnchantPack1.Instance.getServer().getPluginManager().registerEvents(this, EnchantPack1.Instance);
 	}
 	
 	@Override
-	public int a(int i) {
+	public int MinCost(int i) {
 	    return i * 30;
 	}
 	
 	@Override
-	public int b(int i) {
-	    return a(i) + 30;
+	public int MaxCost(int i) {
+	    return MinCost(i) + 30;
 	}
 	
 	@Override
-	public boolean b() {
+	public boolean OnlyTreasure() {
 		return true;
 	}
 	
 	
 	@Override
-	public int a() {
+	public int MaxLvl() {
 		return 5;
 	}
 	
 	@Override
-	public boolean a(Enchantment enchantment) {
+	public boolean isCompatible(Enchantment enchantment) {
 		return true;
 	}
 	

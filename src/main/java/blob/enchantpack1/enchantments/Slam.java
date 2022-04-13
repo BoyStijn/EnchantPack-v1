@@ -2,6 +2,8 @@ package blob.enchantpack1.enchantments;
 
 import java.util.List;
 
+import org.bukkit.Tag;
+import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
@@ -12,50 +14,51 @@ import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.EntityDamageEvent.DamageCause;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerMoveEvent;
+import org.bukkit.inventory.ItemStack;
 import org.bukkit.util.Vector;
 
+import blob.enchantlib.CustomEnchantment;
+import blob.enchantlib.EnchantRarity;
+import blob.enchantlib.EnchantSlot;
+import blob.enchantlib.EnchantTarget;
 import blob.enchantpack1.EnchantPack1;
-import net.minecraft.world.entity.EnumItemSlot;
-import net.minecraft.world.item.ItemSpade;
-import net.minecraft.world.item.enchantment.Enchantment;
-import net.minecraft.world.item.enchantment.EnchantmentSlotType;
 
-public class Slam extends Enchantment implements Listener {
+public class Slam extends CustomEnchantment implements Listener {
 
-	public Slam(Rarity rarity, EnumItemSlot... aenumitemslot) {
-		super(rarity, EnchantmentSlotType.g, aenumitemslot);
+	public Slam(EnchantRarity rarity, EnchantSlot... aenumitemslot) {
+		super(rarity, EnchantTarget.TOOLS, aenumitemslot);
 		EnchantPack1.Instance.getServer().getPluginManager().registerEvents(this, EnchantPack1.Instance);
 	}
 	
 	@Override
-	public int a(int i) {
+	public int MinCost(int i) {
 	    return i * 30;
 	}
 	
 	@Override
-	public int b(int i) {
-	    return a(i) + 30;
+	public int MaxCost(int i) {
+	    return MinCost(i) + 30;
 	}
 	
 	@Override
-	public boolean b() {
+	public boolean OnlyTreasure() {
 		return false;
 	}
 	
 	
 	@Override
-	public int a() {
+	public int MaxLvl() {
 		return 3;
 	}
 	
 	@Override
-	public boolean a(Enchantment enchantment) {
+	public boolean isCompatible(Enchantment enchantment) {
 		return true;
 	}
 	
 	@Override
-	public boolean a(net.minecraft.world.item.ItemStack var0) {
-		return (super.a(var0) && (var0.c() instanceof ItemSpade));
+	public boolean canEnchant(ItemStack var0) {
+		return Tag.MINEABLE_SHOVEL.isTagged(var0.getType());
 	}
 	
 	@EventHandler

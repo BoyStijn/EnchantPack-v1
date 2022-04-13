@@ -4,6 +4,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.Tag;
 import org.bukkit.block.Block;
+import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.FallingBlock;
 import org.bukkit.entity.FishHook;
@@ -13,40 +14,41 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.entity.ProjectileHitEvent;
 import org.bukkit.scheduler.BukkitRunnable;
 
+import blob.enchantlib.CustomEnchantment;
+import blob.enchantlib.EnchantRarity;
+import blob.enchantlib.EnchantSlot;
+import blob.enchantlib.EnchantTarget;
 import blob.enchantpack1.EnchantPack1;
-import net.minecraft.world.entity.EnumItemSlot;
-import net.minecraft.world.item.enchantment.Enchantment;
-import net.minecraft.world.item.enchantment.EnchantmentSlotType;
 
-public class blocks extends Enchantment implements Listener{
+public class blocks extends CustomEnchantment implements Listener {
 
-	public blocks(Rarity rarity, EnumItemSlot... aenumitemslot) {
-		super(rarity, EnchantmentSlotType.h, aenumitemslot);
+	public blocks(EnchantRarity rarity, EnchantSlot... aenumitemslot) {
+		super(rarity, EnchantTarget.FISHING_ROD, aenumitemslot);
 		EnchantPack1.Instance.getServer().getPluginManager().registerEvents(this, EnchantPack1.Instance);
 	}
 	
 	@Override
-	public int a(int i) {
+	public int MinCost(int i) {
 	    return i * 10;
 	}
 	
 	@Override
-	public int b(int i) {
-	    return a(i) + 15;
+	public int MaxCost(int i) {
+	    return MinCost(i) + 15;
 	}
 	
 	@Override
-	public boolean b() {
+	public boolean OnlyTreasure() {
 		return true;
 	}
 	
 	@Override
-	public int a() {
+	public int MaxLvl() {
 		return 1;
 	}
 	
 	@Override
-	public boolean a(Enchantment enchantment) {
+	public boolean isCompatible(Enchantment enchantment) {
 		return true;
 	}
 	

@@ -1,6 +1,7 @@
 package blob.enchantpack1.enchantments;
 
 import org.bukkit.Material;
+import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -8,48 +9,47 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.inventory.ItemStack;
 
+import blob.enchantlib.CustomEnchantment;
+import blob.enchantlib.EnchantRarity;
+import blob.enchantlib.EnchantSlot;
+import blob.enchantlib.EnchantTarget;
 import blob.enchantpack1.EnchantPack1;
-import net.minecraft.world.entity.EnumItemSlot;
-import net.minecraft.world.item.ItemShield;
-import net.minecraft.world.item.enchantment.Enchantment;
-import net.minecraft.world.item.enchantment.EnchantmentSlotType;
+public class Spiked extends CustomEnchantment implements Listener {
 
-public class Spiked extends Enchantment implements Listener {
-
-	public Spiked(Rarity rarity, EnumItemSlot... aenumitemslot) {
-		super(rarity, EnchantmentSlotType.j, aenumitemslot);
+	public Spiked(EnchantRarity rarity, EnchantSlot... aenumitemslot) {
+		super(rarity, EnchantTarget.BREAKABLE, aenumitemslot);
 		EnchantPack1.Instance.getServer().getPluginManager().registerEvents(this, EnchantPack1.Instance);
 	}
 	
 	@Override
-	public int a(int i) {
+	public int MinCost(int i) {
 	    return i * 20;
 	}
 	
 	@Override
-	public int b(int i) {
-	    return a(i) + 30;
+	public int MaxCost(int i) {
+	    return MinCost(i) + 30;
 	}
 	
 	@Override
-	public boolean b() {
+	public boolean OnlyTreasure() {
 		return false;
 	}
 	
 	
 	@Override
-	public int a() {
+	public int MaxLvl() {
 		return 3;
 	}
 	
 	@Override
-	public boolean a(Enchantment enchantment) {
+	public boolean isCompatible(Enchantment enchantment) {
 		return true;
 	}
 	
 	@Override
-	public boolean a(net.minecraft.world.item.ItemStack var0) {
-		return (super.a(var0) && (var0.c() instanceof ItemShield));
+	public boolean canEnchant(ItemStack var0) {
+		return var0.getType() == Material.SHIELD;
 	}
 	
 	@EventHandler

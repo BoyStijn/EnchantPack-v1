@@ -2,6 +2,7 @@ package blob.enchantpack1.enchantments;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
+import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -10,48 +11,48 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.FireworkMeta;
 
+import blob.enchantlib.CustomEnchantment;
+import blob.enchantlib.EnchantRarity;
+import blob.enchantlib.EnchantSlot;
+import blob.enchantlib.EnchantTarget;
 import blob.enchantpack1.EnchantPack1;
-import net.minecraft.world.entity.EnumItemSlot;
-import net.minecraft.world.item.ItemElytra;
-import net.minecraft.world.item.enchantment.Enchantment;
-import net.minecraft.world.item.enchantment.EnchantmentSlotType;
 
-public class Flight extends Enchantment implements Listener {
+public class Flight extends CustomEnchantment implements Listener {
 
-	public Flight(Rarity rarity, EnumItemSlot... aenumitemslot) {
-		super(rarity, EnchantmentSlotType.l, aenumitemslot);
+	public Flight(EnchantRarity rarity, EnchantSlot... aenumitemslot) {
+		super(rarity, EnchantTarget.ARMOR_CHEST, aenumitemslot);
 		EnchantPack1.Instance.getServer().getPluginManager().registerEvents(this, EnchantPack1.Instance);
 	}
 	
 	@Override
-	public int a(int i) {
+	public int MinCost(int i) {
 	    return i * 20;
 	}
 	
 	@Override
-	public int b(int i) {
-	    return a(i) + 15;
+	public int MaxCost(int i) {
+	    return MinCost(i) + 15;
 	}
 	
 	@Override
-	public boolean b() {
+	public boolean OnlyTreasure() {
 		return true;
 	}
 	
 	
 	@Override
-	public int a() {
+	public int MaxLvl() {
 		return 5;
 	}
 	
 	@Override
-	public boolean a(Enchantment enchantment) {
-		return false;
+	public boolean isCompatible(Enchantment enchantment) {
+		return true;
 	}
 	
 	@Override
-	public boolean a(net.minecraft.world.item.ItemStack var0) {
-		return (super.a(var0) && (var0.c() instanceof ItemElytra));
+	public boolean canEnchant(ItemStack var0) {
+		return var0.getType() == Material.ELYTRA;
 	}
 	
 	@EventHandler
