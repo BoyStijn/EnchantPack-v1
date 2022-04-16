@@ -34,7 +34,7 @@ public class BullRider extends CustomEnchantment implements Listener{
 
 	private static HashMap<UUID, UUID> bulls = new HashMap<UUID, UUID>();
 	
-	public BullRider(EnchantRarity rarity, EnchantSlot... aenumitemslot) {
+	public BullRider(double rarity, EnchantSlot... aenumitemslot) {
 		super(rarity, EnchantTarget.ARMOR_HEAD, aenumitemslot);
 		EnchantPack1.Instance.getServer().getPluginManager().registerEvents(this, EnchantPack1.Instance);
 	}

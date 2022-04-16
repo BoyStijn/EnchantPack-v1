@@ -19,7 +19,7 @@ import blob.enchantlib.EnchantTarget;
 import blob.enchantpack1.EnchantPack1;
 public class LumberJack extends CustomEnchantment implements Listener {
 
-	public LumberJack(EnchantRarity rarity, EnchantSlot... aenumitemslot) {
+	public LumberJack(double rarity, EnchantSlot... aenumitemslot) {
 		super(rarity, EnchantTarget.TOOLS, aenumitemslot);
 		EnchantPack1.Instance.getServer().getPluginManager().registerEvents(this, EnchantPack1.Instance);
 	}

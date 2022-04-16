@@ -22,7 +22,7 @@ import blob.enchantpack1.EnchantPack1;
 
 public class blocks extends CustomEnchantment implements Listener {
 
-	public blocks(EnchantRarity rarity, EnchantSlot... aenumitemslot) {
+	public blocks(double rarity, EnchantSlot... aenumitemslot) {
 		super(rarity, EnchantTarget.FISHING_ROD, aenumitemslot);
 		EnchantPack1.Instance.getServer().getPluginManager().registerEvents(this, EnchantPack1.Instance);
 	}

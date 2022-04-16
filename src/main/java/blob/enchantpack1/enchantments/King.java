@@ -17,7 +17,7 @@ import blob.enchantpack1.EnchantPack1;
 
 public class King extends CustomEnchantment implements Listener{
 
-	public King(EnchantRarity rarity, EnchantSlot... aenumitemslot) {
+	public King(double rarity, EnchantSlot... aenumitemslot) {
 		super(rarity, EnchantTarget.ARMOR_HEAD, aenumitemslot);
 		EnchantPack1.Instance.getServer().getPluginManager().registerEvents(this, EnchantPack1.Instance);
 	}

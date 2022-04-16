@@ -16,7 +16,7 @@ import blob.enchantpack1.EnchantPack1;
 
 public class Reaper extends CustomEnchantment implements Listener {
 
-	public Reaper(EnchantRarity rarity, EnchantSlot... aenumitemslot) {
+	public Reaper(double rarity, EnchantSlot... aenumitemslot) {
 		super(rarity, EnchantTarget.SWORD, aenumitemslot);
 		EnchantPack1.Instance.getServer().getPluginManager().registerEvents(this, EnchantPack1.Instance);
 	}

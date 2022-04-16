@@ -16,7 +16,7 @@ import blob.enchantpack1.EnchantPack1;
 
 public class Digger extends CustomEnchantment implements Listener {
 
-	public Digger(EnchantRarity rarity, EnchantSlot... aenumitemslot) {
+	public Digger(double rarity, EnchantSlot... aenumitemslot) {
 		super(rarity, EnchantTarget.TOOLS, aenumitemslot);
 		EnchantPack1.Instance.getServer().getPluginManager().registerEvents(this, EnchantPack1.Instance);
 	}

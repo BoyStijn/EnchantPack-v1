@@ -25,7 +25,7 @@ import blob.enchantpack1.EnchantPack1;
 
 public class Slam extends CustomEnchantment implements Listener {
 
-	public Slam(EnchantRarity rarity, EnchantSlot... aenumitemslot) {
+	public Slam(double rarity, EnchantSlot... aenumitemslot) {
 		super(rarity, EnchantTarget.TOOLS, aenumitemslot);
 		EnchantPack1.Instance.getServer().getPluginManager().registerEvents(this, EnchantPack1.Instance);
 	}

@@ -16,7 +16,7 @@ import blob.enchantlib.EnchantTarget;
 import blob.enchantpack1.EnchantPack1;
 public class JellyLegs extends CustomEnchantment implements Listener{
 
-	public JellyLegs(EnchantRarity rarity, EnchantSlot... aenumitemslot) {
+	public JellyLegs(double rarity, EnchantSlot... aenumitemslot) {
 		super(rarity, EnchantTarget.ARMOR_FEET, aenumitemslot);
 		EnchantPack1.Instance.getServer().getPluginManager().registerEvents(this, EnchantPack1.Instance);
 	}

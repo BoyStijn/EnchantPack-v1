@@ -17,7 +17,7 @@ import blob.enchantpack1.EnchantPack1;
 
 public class LavaWalker extends CustomEnchantment implements Listener{
 
-	public LavaWalker(EnchantRarity rarity, EnchantSlot... aenumitemslot) {
+	public LavaWalker(double rarity, EnchantSlot... aenumitemslot) {
 		super(rarity, EnchantTarget.ARMOR_FEET, aenumitemslot);
 		EnchantPack1.Instance.getServer().getPluginManager().registerEvents(this, EnchantPack1.Instance);
 	}

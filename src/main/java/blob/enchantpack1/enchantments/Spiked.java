@@ -16,7 +16,7 @@ import blob.enchantlib.EnchantTarget;
 import blob.enchantpack1.EnchantPack1;
 public class Spiked extends CustomEnchantment implements Listener {
 
-	public Spiked(EnchantRarity rarity, EnchantSlot... aenumitemslot) {
+	public Spiked(double rarity, EnchantSlot... aenumitemslot) {
 		super(rarity, EnchantTarget.BREAKABLE, aenumitemslot);
 		EnchantPack1.Instance.getServer().getPluginManager().registerEvents(this, EnchantPack1.Instance);
 	}

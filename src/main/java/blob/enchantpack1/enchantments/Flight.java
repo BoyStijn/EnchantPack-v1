@@ -19,7 +19,7 @@ import blob.enchantpack1.EnchantPack1;
 
 public class Flight extends CustomEnchantment implements Listener {
 
-	public Flight(EnchantRarity rarity, EnchantSlot... aenumitemslot) {
+	public Flight(double rarity, EnchantSlot... aenumitemslot) {
 		super(rarity, EnchantTarget.ARMOR_CHEST, aenumitemslot);
 		EnchantPack1.Instance.getServer().getPluginManager().registerEvents(this, EnchantPack1.Instance);
 	}

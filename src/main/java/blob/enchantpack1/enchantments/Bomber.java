@@ -16,7 +16,7 @@ import blob.enchantpack1.EnchantPack1;
 
 public class Bomber extends CustomEnchantment implements Listener {
 
-	public Bomber(EnchantRarity rarity, EnchantSlot... aenumitemslot) {
+	public Bomber(double rarity, EnchantSlot... aenumitemslot) {
 		super(rarity, EnchantTarget.BOW, aenumitemslot);
 		EnchantPack1.Instance.getServer().getPluginManager().registerEvents(this, EnchantPack1.Instance);
 	}
