@@ -58,7 +58,7 @@ public class Lagging extends CustomEnchantment implements Listener {
     public void onShoot(PlayerMoveEvent event) {
 		Player p = event.getPlayer();
 		if(p.getInventory().getHelmet() != null) {
-			int level = p.getInventory().getHelmet().getEnchantmentLevel(EnchantPackServer.API.getBukkitEnchant(this));
+			int level = p.getInventory().getHelmet().getEnchantmentLevel(EnchantPack1.API.getBukkitEnchant(this));
 			if (level > 0) {
 				double rng = Math.random() * 100;
 				if (rng > (100 -(10*level))) {
